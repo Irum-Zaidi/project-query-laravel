@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ali Khan",
+    "email": "ali.khan@example.com",
+    "age": 21,
+    "city": "Lahore"
+  },
+  {
+    "name": "Fatima Zahra",
+    "email": "fatima.zahra@example.com",
+    "age": 23,
+    "city": "Karachi"
+  },
+  {
+    "name": "Usman Ahmed",
+    "email": "usman.ahmed@example.com",
+    "age": 22,
+    "city": "Islamabad"
+  },
+  {
+    "name": "Hina Sheikh",
+    "email": "hina.sheikh@example.com",
+    "age": 20,
+    "city": "Multan"
+  },
+  {
+    "name": "Ahsan Javed",
+    "email": "ahsan.javed@example.com",
+    "age": 24,
+    "city": "Rawalpindi"
+  }
+]
