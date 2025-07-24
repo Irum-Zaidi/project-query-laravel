@@ -50,74 +50,404 @@ class StudentController extends Controller
         // $students = DB::table('students')->find(4);
         // return view('allstudents', ['data'=> $students]);
 
-        $students = DB::table('students')
-            // ->select('name','age', 'email as user_email')
-            // ->select('city')
-            // add unlimited where conditions
-            // ->where('city','lahore')
-            // ->where('age','<', 20)
-            // ->select('name')
-            // ->where('name','like', 'A%')
+        // $students = DB::table('students')
+        // ->select('name','age', 'email as user_email')
+        // ->select('city')
+        // add unlimited where conditions
+        // ->where('city','lahore')
+        // ->where('age','<', 20)
+        // ->select('name')
+        // ->where('name','like', 'A%')
 
-            // ->distinct()
+        // ->distinct()
 
-            // ->where([
-            //     // ['city', '=', 'lahore'],
-            //     ['age', '<', 35],
-            //     ['name', 'like', 'A%']
-            // ])
+        // ->where([
+        //     // ['city', '=', 'lahore'],
+        //     ['age', '<', 35],
+        //     ['name', 'like', 'A%']
+        // ])
 
-            // ->where('city', 'lahore')
-            // ->orWhere('age', '<', 22)
+        // ->where('city', 'lahore')
+        // ->orWhere('age', '<', 22)
 
 
-            // ->whereBetween('id', [2, 4])
-            // ->whereNotBetween('id', [2, 4])
-            // ->whereIn('id', [1, 4, 5])
-            // ->whereNotIn('id', [1, 4, 5])
-            // ->OrWhereNotIn('id', [1, 4, 5])
-            // ->WhereNull('email')
-            // ->WhereNotNull('email')
-            // ->whereDate('created_at', '2025-07-25')
-            // ->whereMonth('created_at', '06')
-            // ->whereDay('created_at', '06')
-            // ->whereYear('created_at', '06')
-            // ->whereTime('created_at', '18:12:40')
+        // ->whereBetween('id', [2, 4])
+        // ->whereNotBetween('id', [2, 4])
+        // ->whereIn('id', [1, 4, 5])
+        // ->whereNotIn('id', [1, 4, 5])
+        // ->OrWhereNotIn('id', [1, 4, 5])
+        // ->WhereNull('email')
+        // ->WhereNotNull('email')
+        // ->whereDate('created_at', '2025-07-25')
+        // ->whereMonth('created_at', '06')
+        // ->whereDay('created_at', '06')
+        // ->whereYear('created_at', '06')
+        // ->whereTime('created_at', '18:12:40')
 
-            // ->orderBy('id', 'desc')
-            // ->orderBy('name', 'asc')
-            // ->get();
-            // return view('allstudents', ['data' => $students]);
-            
-            
-            // ->latest()
-            // ->oldest()
-            // ->inRandomOrder()
-            // ->first();
-            // return $students;
-            
-            // ->limit(1)
-            // ->offset(2)
-            // ->take(2)
-            // ->skip(2)
-            
-            // ->get();
-            // return view('allstudents', ['data' => $students]);
-            // ->max('age');
-            // ->min('age');
-            // ->avg('age');
-            ->sum('age');
-            return $students;
-        }
-        
+        // ->orderBy('id', 'desc')
+        // ->orderBy('name', 'asc')
+        // ->get();
+        // return view('allstudents', ['data' => $students]);
+
+
+        // ->latest()
+        // ->oldest()
+        // ->inRandomOrder()
+        // ->first();
+        // return $students;
+
+        // ->limit(1)
+        // ->offset(2)
+        // ->take(2)
+        // ->skip(2)
+
+        // ->get();
+        // return view('allstudents', ['data' => $students]);
+        // ->max('age');
+        // ->min('age');
+        // ->avg('age');
+        // ->sum('age');
+        // return $students;
+
+        $students = DB::table('students')->get();
+        return view('allstudents', ['data' => $students]);
+    }
+
     public function singleStudent(string $id)
     {
         $students = DB::table('students')->where('id', operator: $id)->get();
         // return $students;
         return view('student', ['data' => $students]);
     }
+
+    public function addStudent()
+    {
+        $students = DB::table('students')
+            ->insert([
+                'name' => 'tabish jafar',
+                'email' => 'tabishjafar@email.com',
+                'age' => 25,
+                'city' => 'Lahore',
+                // // 'created_at' => now(),
+                // // 'updated_at' => now(),
+            ]);
+        if ($students) {
+            echo "Data inserted successfully";
+        } else {
+            echo "Data insertion failed";
+        }
+
+        // $students = DB::table('students')
+        //     ->insert([
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahra@email.com',
+        //             'age' => 22,
+        //             'city' => 'Karachi',
+        //             'created_at' => now(),
+        //             'updated_at' => now()
+        //         ],
+        //         [
+        //             'name' => 'ali zaidi',
+        //             'email' => 'ali@email.com',
+        //             'age' => 24,
+        //             'city' => 'Karachi',
+        //             'created_at' => now(),
+        //             'updated_at' => now()
+        //         ],
+        //         [
+        //             'name' => 'taqi zaidi',
+        //             'email' => 'taqi@email.com',
+        //             'age' => 34,
+        //             'city' => 'Karachi',
+        //             'created_at' => now(),
+        //             'updated_at' => now()
+        //         ]
+        //     ]);
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "Data insertion failed";
+        // }
+
+        // $students = DB::table('students')
+        //     ->insert([
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahra@email.com',
+        //             'age' => 22,
+        //             'city' => 'Karachi',
+        //             // 'created_at' => now(),
+        //             // 'updated_at' => now()
+        //         ]
+        //     ]);
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "Data insertion failed";
+        // }
+
+
+        // $students = DB::table('students')
+        //     ->insertOrIgnore([
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahra@email.com',
+        //             'age' => 22,
+        //             'city' => 'Karachi',
+        //         ]
+        //     ]);
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "<h3>Data already exists</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        //     ->upsert(
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahra@email.com',
+        //             'age' => 20,
+        //             'city' => 'lahore',
+        //         ],
+        //         ['email']
+        //     );
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+        // }
+
+        //   $students = DB::table('students')
+        //     ->upsert(
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahrazaidi@email.com',
+        //             'age' => 20,
+        //             'city' => 'lahore',
+        //         ],
+        //         ['email']
+        //     );
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+        // }
+
+        // $students = DB::table('students')
+        //     ->upsert(
+        //         [
+        //             'name' => 'zahra zaidi',
+        //             'email' => 'zahrazaidi@email.com',
+        //             'age' => 20,
+        //             'city' => 'islamabad',
+        //         ],
+        //         ['email'],
+        //         ['city']
+        //     );
+        // if ($students) {
+        //     echo "<h2>Data inserted successfully</h2>";
+        // } else {
+        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        //     ->insertGetId(
+        //         [
+        //             'name' => 'zafar zaidi',
+        //             'email' => 'zafar@email.com',
+        //             'age' => 16,
+        //             'city' => 'Quetta',
+        //         ]
+        //     );
+        //     return $students; // This will return the ID of the inserted student
+
+    }
+
+    public function updateStudent()
+    {
+        // $students = DB::table('students')
+        //     ->where('id', 6)
+        //     ->update([
+        //         'city' => 'Lahore',
+        //     ]);
+        // $students = DB::table('students')
+        //     ->where('id', 10)
+        //     ->update([
+        //         'city' => 'Islamabad',
+        //         'age' => 20,
+        //     ]);
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+        //   $students = DB::table('students')
+        //     ->where('id', 4)
+        //     ->update([
+        //         'city' => 'Islamabad',
+        //         'age' => 40,
+        //     ]);
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        //     ->where('id', 4)
+        //     ->updateOrInsert(
+        //         [
+        //             'city' => 'Gujranwala',
+        //             'age' => 160,
+        //             'email' => 'Zafarhassan@newemail.com',
+        //         ],
+        //         [
+        //             'name' => 'Zafar Hassan',
+        //         ]
+        //     );
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        // ->where('id', 3)
+        //     // ->increment('age');
+        //     ->increment('age',3);
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        // ->where('id', 3)
+        //     ->decrement('age');
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+        // $students = DB::table('students')
+        // ->where('id', 3)
+        //     ->decrement('age',3);
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        // ->where('id', 3)
+        //     ->decrement('age',3, ['city' => 'Karachi']);
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+        // $students = DB::table('students')
+        //     ->where('id', 3)
+        //     ->incrementEach(
+        //         [
+        //             'age' => 2,
+        //             // votes => 1,
+        //         ]
+        //     );
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+
+
+        // $students = DB::table('students')
+        //     ->where('id', 3)
+        //     ->decrementEach(
+        //         [
+        //             'age' => 2,
+        //             // votes => 1,
+        //         ]
+        //     );
+
+        // if ($students) {
+        //     echo "<h2>Data updated successfully</h2>";
+        // } else {
+        //     echo "<h3>Data update failed</h3>";
+        // }
+    }
+
+    // public function deleteStudent()
+    // {
+    //     $students = DB::table('students')
+    //         ->where('id', 14)
+    //         ->delete();
+
+    //     if ($students) {
+    //         echo "<h2>Data deleted successfully</h2>";
+    //     } else {
+    //         echo "<h3>Data deletion failed</h3>";
+    //     }
+
+
+
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 3)
+    //     //     ->forceDelete();
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data deleted successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data deletion failed</h3>";
+    //     // }
+
+
+    // }   
+
+
+    public function deleteStudent(string $id)
+    {
+        // $students = DB::table('students')
+        //     ->where('id', $id)
+        //     ->delete();
+
+        // if ($students) {
+        //     echo "<h2>Data deleted successfully</h2>";
+        //     return redirect()->route('home'); // Redirect back to the previous page after deletion
+        // } else {
+        //     echo "<h3>Data deletion failed</h3>";
+        // }
+
+    }
+
+    public function deleteAllStudent()
+    {
+        // $students = DB::table('students')
+            // ->delete();
+    
+        $students = DB::table('students')
+            ->truncate(); // This will delete all records from the table and reset the auto-incrementing ID
+
+    }
+
+
 }
-
-
-
-// RESUME FROM WHERE DATA SHOW IN TABLE AND TEACHER ADDING HEADING. ELSE YOU WILL GET ERRORS
