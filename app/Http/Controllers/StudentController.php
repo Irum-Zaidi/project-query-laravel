@@ -120,281 +120,282 @@ class StudentController extends Controller
         return view('student', ['data' => $students]);
     }
 
-    public function addStudent()
-    {
-        $students = DB::table('students')
-            ->insert([
-                'name' => 'tabish jafar',
-                'email' => 'tabishjafar@email.com',
-                'age' => 25,
-                'city' => 'Lahore',
-                // // 'created_at' => now(),
-                // // 'updated_at' => now(),
-            ]);
-        if ($students) {
-            echo "Data inserted successfully";
-        } else {
-            echo "Data insertion failed";
-        }
+    // public function addStudent()
+    // {
+    // $students = DB::table('students')
+    //     ->insert([
+    //         'name' => 'tabish jafar',
+    //         'email' => 'tabishjafar@email.com',
+    //         'age' => 25,
+    //         'city' => 'Lahore',
+    //         // // 'created_at' => now(),
+    //         // // 'updated_at' => now(),
+    //     ]);
+    // if ($students) {
+    //     echo "Data inserted successfully";
+    // } else {
+    //     echo "Data insertion failed";
+    // }
 
-        // $students = DB::table('students')
-        //     ->insert([
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahra@email.com',
-        //             'age' => 22,
-        //             'city' => 'Karachi',
-        //             'created_at' => now(),
-        //             'updated_at' => now()
-        //         ],
-        //         [
-        //             'name' => 'ali zaidi',
-        //             'email' => 'ali@email.com',
-        //             'age' => 24,
-        //             'city' => 'Karachi',
-        //             'created_at' => now(),
-        //             'updated_at' => now()
-        //         ],
-        //         [
-        //             'name' => 'taqi zaidi',
-        //             'email' => 'taqi@email.com',
-        //             'age' => 34,
-        //             'city' => 'Karachi',
-        //             'created_at' => now(),
-        //             'updated_at' => now()
-        //         ]
-        //     ]);
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "Data insertion failed";
-        // }
+    // $students = DB::table('students')
+    //     ->insert([
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahra@email.com',
+    //             'age' => 22,
+    //             'city' => 'Karachi',
+    //             'created_at' => now(),
+    //             'updated_at' => now()
+    //         ],
+    //         [
+    //             'name' => 'ali zaidi',
+    //             'email' => 'ali@email.com',
+    //             'age' => 24,
+    //             'city' => 'Karachi',
+    //             'created_at' => now(),
+    //             'updated_at' => now()
+    //         ],
+    //         [
+    //             'name' => 'taqi zaidi',
+    //             'email' => 'taqi@email.com',
+    //             'age' => 34,
+    //             'city' => 'Karachi',
+    //             'created_at' => now(),
+    //             'updated_at' => now()
+    //         ]
+    //     ]);
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "Data insertion failed";
+    // }
 
-        // $students = DB::table('students')
-        //     ->insert([
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahra@email.com',
-        //             'age' => 22,
-        //             'city' => 'Karachi',
-        //             // 'created_at' => now(),
-        //             // 'updated_at' => now()
-        //         ]
-        //     ]);
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "Data insertion failed";
-        // }
-
-
-        // $students = DB::table('students')
-        //     ->insertOrIgnore([
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahra@email.com',
-        //             'age' => 22,
-        //             'city' => 'Karachi',
-        //         ]
-        //     ]);
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "<h3>Data already exists</h3>";
-        // }
+    // $students = DB::table('students')
+    //     ->insert([
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahra@email.com',
+    //             'age' => 22,
+    //             'city' => 'Karachi',
+    //             // 'created_at' => now(),
+    //             // 'updated_at' => now()
+    //         ]
+    //     ]);
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "Data insertion failed";
+    // }
 
 
-        // $students = DB::table('students')
-        //     ->upsert(
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahra@email.com',
-        //             'age' => 20,
-        //             'city' => 'lahore',
-        //         ],
-        //         ['email']
-        //     );
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
-        // }
-
-        //   $students = DB::table('students')
-        //     ->upsert(
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahrazaidi@email.com',
-        //             'age' => 20,
-        //             'city' => 'lahore',
-        //         ],
-        //         ['email']
-        //     );
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
-        // }
-
-        // $students = DB::table('students')
-        //     ->upsert(
-        //         [
-        //             'name' => 'zahra zaidi',
-        //             'email' => 'zahrazaidi@email.com',
-        //             'age' => 20,
-        //             'city' => 'islamabad',
-        //         ],
-        //         ['email'],
-        //         ['city']
-        //     );
-        // if ($students) {
-        //     echo "<h2>Data inserted successfully</h2>";
-        // } else {
-        //     echo "<h3>Data insertion failed Or Data already exists</h3>";
-        // }
+    // $students = DB::table('students')
+    //     ->insertOrIgnore([
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahra@email.com',
+    //             'age' => 22,
+    //             'city' => 'Karachi',
+    //         ]
+    //     ]);
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "<h3>Data already exists</h3>";
+    // }
 
 
-        // $students = DB::table('students')
-        //     ->insertGetId(
-        //         [
-        //             'name' => 'zafar zaidi',
-        //             'email' => 'zafar@email.com',
-        //             'age' => 16,
-        //             'city' => 'Quetta',
-        //         ]
-        //     );
-        //     return $students; // This will return the ID of the inserted student
+    // $students = DB::table('students')
+    //     ->upsert(
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahra@email.com',
+    //             'age' => 20,
+    //             'city' => 'lahore',
+    //         ],
+    //         ['email']
+    //     );
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+    // }
 
-    }
+    //   $students = DB::table('students')
+    //     ->upsert(
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahrazaidi@email.com',
+    //             'age' => 20,
+    //             'city' => 'lahore',
+    //         ],
+    //         ['email']
+    //     );
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+    // }
 
-    public function updateStudent()
-    {
-        // $students = DB::table('students')
-        //     ->where('id', 6)
-        //     ->update([
-        //         'city' => 'Lahore',
-        //     ]);
-        // $students = DB::table('students')
-        //     ->where('id', 10)
-        //     ->update([
-        //         'city' => 'Islamabad',
-        //         'age' => 20,
-        //     ]);
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
-
-        //   $students = DB::table('students')
-        //     ->where('id', 4)
-        //     ->update([
-        //         'city' => 'Islamabad',
-        //         'age' => 40,
-        //     ]);
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
-
-
-        // $students = DB::table('students')
-        //     ->where('id', 4)
-        //     ->updateOrInsert(
-        //         [
-        //             'city' => 'Gujranwala',
-        //             'age' => 160,
-        //             'email' => 'Zafarhassan@newemail.com',
-        //         ],
-        //         [
-        //             'name' => 'Zafar Hassan',
-        //         ]
-        //     );
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
+    // $students = DB::table('students')
+    //     ->upsert(
+    //         [
+    //             'name' => 'zahra zaidi',
+    //             'email' => 'zahrazaidi@email.com',
+    //             'age' => 20,
+    //             'city' => 'islamabad',
+    //         ],
+    //         ['email'],
+    //         ['city']
+    //     );
+    // if ($students) {
+    //     echo "<h2>Data inserted successfully</h2>";
+    // } else {
+    //     echo "<h3>Data insertion failed Or Data already exists</h3>";
+    // }
 
 
-        // $students = DB::table('students')
-        // ->where('id', 3)
-        //     // ->increment('age');
-        //     ->increment('age',3);
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
-
-
-        // $students = DB::table('students')
-        // ->where('id', 3)
-        //     ->decrement('age');
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
-
-        // $students = DB::table('students')
-        // ->where('id', 3)
-        //     ->decrement('age',3);
-
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
+    // $students = DB::table('students')
+    //     ->insertGetId(
+    //         [
+    //             'name' => 'zafar zaidi',
+    //             'email' => 'zafar@email.com',
+    //             'age' => 16,
+    //             'city' => 'Quetta',
+    //         ]
+    //     );
+    //     return $students; // This will return the ID of the inserted student
 
 
-        // $students = DB::table('students')
-        // ->where('id', 3)
-        //     ->decrement('age',3, ['city' => 'Karachi']);
+    // }
 
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
+    // public function updateStudent()
+    // {
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 6)
+    //     //     ->update([
+    //     //         'city' => 'Lahore',
+    //     //     ]);
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 10)
+    //     //     ->update([
+    //     //         'city' => 'Islamabad',
+    //     //         'age' => 20,
+    //     //     ]);
 
-        // $students = DB::table('students')
-        //     ->where('id', 3)
-        //     ->incrementEach(
-        //         [
-        //             'age' => 2,
-        //             // votes => 1,
-        //         ]
-        //     );
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
 
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
+    //     //   $students = DB::table('students')
+    //     //     ->where('id', 4)
+    //     //     ->update([
+    //     //         'city' => 'Islamabad',
+    //     //         'age' => 40,
+    //     //     ]);
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
 
 
-        // $students = DB::table('students')
-        //     ->where('id', 3)
-        //     ->decrementEach(
-        //         [
-        //             'age' => 2,
-        //             // votes => 1,
-        //         ]
-        //     );
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 4)
+    //     //     ->updateOrInsert(
+    //     //         [
+    //     //             'city' => 'Gujranwala',
+    //     //             'age' => 160,
+    //     //             'email' => 'Zafarhassan@newemail.com',
+    //     //         ],
+    //     //         [
+    //     //             'name' => 'Zafar Hassan',
+    //     //         ]
+    //     //     );
 
-        // if ($students) {
-        //     echo "<h2>Data updated successfully</h2>";
-        // } else {
-        //     echo "<h3>Data update failed</h3>";
-        // }
-    }
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+
+    //     // $students = DB::table('students')
+    //     // ->where('id', 3)
+    //     //     // ->increment('age');
+    //     //     ->increment('age',3);
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+
+    //     // $students = DB::table('students')
+    //     // ->where('id', 3)
+    //     //     ->decrement('age');
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+    //     // $students = DB::table('students')
+    //     // ->where('id', 3)
+    //     //     ->decrement('age',3);
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+
+    //     // $students = DB::table('students')
+    //     // ->where('id', 3)
+    //     //     ->decrement('age',3, ['city' => 'Karachi']);
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 3)
+    //     //     ->incrementEach(
+    //     //         [
+    //     //             'age' => 2,
+    //     //             // votes => 1,
+    //     //         ]
+    //     //     );
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+
+
+    //     // $students = DB::table('students')
+    //     //     ->where('id', 3)
+    //     //     ->decrementEach(
+    //     //         [
+    //     //             'age' => 2,
+    //     //             // votes => 1,
+    //     //         ]
+    //     //     );
+
+    //     // if ($students) {
+    //     //     echo "<h2>Data updated successfully</h2>";
+    //     // } else {
+    //     //     echo "<h3>Data update failed</h3>";
+    //     // }
+    // }
 
     // public function deleteStudent()
     // {
@@ -426,28 +427,83 @@ class StudentController extends Controller
 
     public function deleteStudent(string $id)
     {
-        // $students = DB::table('students')
-        //     ->where('id', $id)
-        //     ->delete();
+        $students = DB::table('students')
+            ->where('id', $id)
+            ->delete();
 
-        // if ($students) {
-        //     echo "<h2>Data deleted successfully</h2>";
-        //     return redirect()->route('home'); // Redirect back to the previous page after deletion
-        // } else {
-        //     echo "<h3>Data deletion failed</h3>";
-        // }
-
+        if ($students) {
+            echo "<h2>Data deleted successfully</h2>";
+            return redirect()->route('home'); // Redirect back to the previous page after deletion
+        } else {
+            echo "<h3>Data deletion failed</h3>";
+        }
     }
 
     public function deleteAllStudent()
     {
         // $students = DB::table('students')
-            // ->delete();
-    
+        // ->delete();
+
         $students = DB::table('students')
             ->truncate(); // This will delete all records from the table and reset the auto-incrementing ID
 
     }
 
 
+    public function addStudent(Request $req)
+    {
+        // return $req;
+        $students = DB::table('students')
+            ->insert([
+                'name' => $req->input('username'),
+                'email' => $req->input('useremail'),
+                'age' => $req->input('userage'),
+                'city' => $req->input('usercity'),
+            ]);
+
+        if ($students) {
+            // echo "Data inserted successfully";
+            return redirect()->route('home'); // Redirect to the home route after successful insertion
+        } else {
+            echo "Data insertion failed";
+        }
+    }
+
+    public function updatePage(string $id)
+    {
+        // Fetch the student data based on the provided ID
+        // $student = DB::table('students')->where('id', $id)->get();
+        // $student = DB::table('students')->find($id);
+        // return $student;
+        $student = DB::table('students')->find($id);
+        return view('updatestudent', ['data' => $student]);
+        // // Check if the student exists
+        // if ($student) {
+        //     // Return the view with the student data
+        //     return view('updatepage', ['data' => $student]);
+        // } else {
+        //     // Handle the case where the student does not exist
+        //     return redirect()->route('home')->with('error', 'Student not found');
+        // }
+    }
+
+    public function updateStudent(Request $req, string $id)
+    {
+        // return $req;
+        $students = DB::table('students')
+            ->where('id', $id) // Assuming you pass the student
+            ->update([
+                'name' => $req->input('username'),
+                'email' => $req->input('useremail'),
+                'age' => $req->input('userage'),
+                'city' => $req->input('usercity'),
+            ]);
+
+            if ($students) {
+                // echo "Data updated successfully";
+                return redirect()->route('home'); // Redirect to the home route after successful update
+            } else {
+                echo "Data update failed";
+            }
+    }
 }
