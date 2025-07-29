@@ -9,7 +9,7 @@ use App\Models\Student; // Ensure you import the Student model
 
 class StudentController extends Controller
 {
-    //
+
     public function showStudents()
     {
         // Logic to show students
@@ -109,7 +109,63 @@ class StudentController extends Controller
         // ->sum('age');
         // return $students;
 
-        $students = DB::table('students')->get();
+        // $students = DB::table('students')->get();
+        // return view('allstudents', ['data' => $students]);
+
+        // $students = DB::table('students')
+        //     ->simplePaginate(4);
+        // return view('allstudents', ['data' => $students]);
+
+        // $students = DB::table('students')
+        // ->orderBy('name')
+        //     ->simplePaginate(4);
+        // return view('allstudents', ['data' => $students]);
+
+
+        // $students = DB::table('students')
+        // ->where('city', 'Lahore')
+        // ->orderBy('name')
+        //     ->simplePaginate(4);
+        // return view('allstudents', ['data' => $students]);
+
+
+
+        // $students = DB::table('students')
+
+        // ->orderBy('id')
+        //     ->Paginate(4);
+        // return view('allstudents', ['data' => $students]);
+
+
+
+
+        // $students = DB::table('students')
+
+        //     ->orderBy('id')
+        //     // ->Paginate(4,2);
+        //     ->Paginate(4, ['*'], 'p', 2);
+        // // return $students;
+        // return view('allstudents', ['data' => $students]);
+
+
+
+
+        // $students = DB::table('students')
+
+        //     ->Paginate(4)
+        //     ->appends(['sort' => 'votes','test' => 'abc']);
+        // return view('allstudents', ['data' => $students]);
+
+        //  $students = DB::table('students')
+
+        //     ->Paginate(4)
+        //     ->fragment('users');
+        // return view('allstudents', ['data' => $students]);
+
+
+        $students = DB::table('students')
+            ->orderBy('id')
+            ->cursorPaginate(4);
         return view('allstudents', ['data' => $students]);
     }
 
@@ -499,11 +555,11 @@ class StudentController extends Controller
                 'city' => $req->input('usercity'),
             ]);
 
-            if ($students) {
-                // echo "Data updated successfully";
-                return redirect()->route('home'); // Redirect to the home route after successful update
-            } else {
-                echo "Data update failed";
-            }
+        if ($students) {
+            // echo "Data updated successfully";
+            return redirect()->route('home'); // Redirect to the home route after successful update
+        } else {
+            echo "Data update failed";
+        }
     }
 }
